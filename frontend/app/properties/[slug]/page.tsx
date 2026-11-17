@@ -17,6 +17,13 @@ import {
   Compass,
 } from "lucide-react";
 
+// Pre-render all known sample property slugs at build time
+export async function generateStaticParams() {
+  return sampleProperties.map((property) => ({
+    slug: property.slug,
+  }));
+}
+
 // Server component to find property by slug
 export default async function PropertyDetailPage({
   params,

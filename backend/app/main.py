@@ -1,3 +1,16 @@
+import sys
+import os
+
+# Automatically ensure parent directories are on sys.path
+_current_file = os.path.abspath(__file__)
+_app_dir = os.path.dirname(_current_file)          # .../backend/app
+_backend_dir = os.path.dirname(_app_dir)          # .../backend
+_repo_root = os.path.dirname(_backend_dir)        # .../realestate-v1
+
+for _dir in [_repo_root, _backend_dir]:
+    if _dir and _dir not in sys.path:
+        sys.path.insert(0, _dir)
+
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware

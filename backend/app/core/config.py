@@ -12,10 +12,10 @@ class Settings(BaseSettings):
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60 * 24 * 7  # 7 days
     
-    # Supabase PostgreSQL Database URL
+    # Supabase PostgreSQL Database URL (Session pooler with IPv4 support)
     DATABASE_URL: str = os.getenv(
         "DATABASE_URL", 
-        "postgresql+asyncpg://postgres:Gokul%407639709810@db.wvhjwksdeqommzzaxvja.supabase.co:5432/postgres"
+        "postgresql+asyncpg://postgres.wvhjwksdeqommzzaxvja:Gokul%407639709810@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres"
     )
     
     # Cloudinary configuration
@@ -37,6 +37,8 @@ class Settings(BaseSettings):
         "http://localhost:3000",
         "http://127.0.0.1:3000",
         "https://nilamprime.vercel.app",
+        "https://realestate-v1-hazel.vercel.app",
+        "https://realestate-v1.vercel.app",
     ]
 
     class Config:

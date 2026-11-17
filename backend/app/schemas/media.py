@@ -15,7 +15,7 @@ class PropertyMediaCreate(PropertyMediaBase):
 class PropertyMediaResponse(PropertyMediaBase):
     id: str
     property_id: str
-    created_at: datetime
+    created_at: Optional[datetime] = None
 
     class Config:
         from_attributes = True

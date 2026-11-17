@@ -23,7 +23,7 @@ class EnquiryResponse(BaseModel):
     status: str
     internal_notes: Optional[str] = None
     created_at: datetime
-    updated_at: datetime
+    updated_at: Optional[datetime] = None
     property_title: Optional[str] = None
 
     class Config:

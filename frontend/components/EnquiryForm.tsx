@@ -14,6 +14,7 @@ import {
   ShieldCheck,
   Send,
 } from "lucide-react";
+import { API_BASE_URL } from "@/lib/api";
 
 interface EnquiryFormProps {
   property?: Property;
@@ -52,8 +53,8 @@ export function EnquiryForm({ property, compact = false }: EnquiryFormProps) {
     setError(null);
 
     try {
-      // Send to FastAPI enquiry endpoint or local mock
-      const res = await fetch("/api/v1/enquiries", {
+      // Send to live FastAPI enquiry endpoint
+      const res = await fetch(`${API_BASE_URL}/api/v1/enquiries`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

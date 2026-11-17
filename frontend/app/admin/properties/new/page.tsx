@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { AdminNavbar } from "@/components/AdminNavbar";
 import { brandConfig } from "@/lib/brandConfig";
+import { API_BASE_URL } from "@/lib/api";
 import { PropertyCategory, LandAreaUnit, PropertyStatus } from "@/types/property";
 import {
   ArrowLeft,
@@ -134,7 +135,7 @@ export default function NewPropertyPage() {
         })),
       };
 
-      await fetch("http://localhost:8000/api/v1/properties", {
+      await fetch(`${API_BASE_URL}/api/v1/properties`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
